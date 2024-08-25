@@ -1,0 +1,43 @@
+URI와 웹 브라우저 요청 흐름
+URI (Uniform Resource Identifier) : 소스를 식별하는 통합된 방법
+URI는 로케이터(locator), 이름(name) 또는 둘다 추가로 분류될 수 있다.
+
+URI 단어 뜻
+Uniform : 리소스 식별하는 통일된 방식
+Resource : 자원 , URI로 식별할 수 있는 모든 것(제한없음)
+Identifier : 다른 항목과 구분하는데 필요한 정보
+
+URL : Locator
+URN : Name 
+통상적으로 URL 을 사용 URN은 있다 정도만 알고 감..
+URN 이름만으로 실제 리소스를 찾을 수 있는 방법이 보편화 되지 않음.
+
+URL 전체 문법
+scheme://userinfo@host:port/path?query#fragment
+https://www.google.com:443/serch?q=hello&hl=ko
+
+주로 프로토콜 사용
+프로토콜: 어떤 방식으로 자원에 접근할 것인가 약속
+
+리소스 경로(path) , 계층적 구조
+ex) /home/file1.jpg
+/members
+/members/100, /items/iphone12
+
+query 
+key=value 형태
+? 로 시작 & 로 추가 가능
+query param,query stirng 등으로 불림, 웹서버에 제공하는 파라미터, 문자 형태
+
+fragment 
+html 내부 북마크 등에 사용
+서버에 전송하는 정보 아님
+
+웹 브라우저 요청 흐름
+1. 웹브라우저 -> HTTP 요청 메세지 생성
+2. 소켓에 전달
+3. TCP/IP 에서 출발지 목적지 기타 를 덧 붙이고 
+4. 2계층으로 전달 -> 송신
+
+3way handshake SYN - SYN/ACK - ACK
+
