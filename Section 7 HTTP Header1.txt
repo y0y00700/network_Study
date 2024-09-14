@@ -1,0 +1,78 @@
+HTTP 헤더
+용도 : 
+HTTP 전송에 필요한 모든 부가정보 
+표준 헤더 필드가 너무 많음
+ 
+과거 : RFC2616
+분류 : 
+General 헤더,Request 헤더, Response 헤더 , Entity 헤더
+
+엔티티 헤더는 엔티티 본문의 데이터를 해석할 수 있는 정보 제공
+데이터 유형(html, JSON) 데이터 길이 , 압축 정도 등..
+
+
+2014 RFC 7230 ~ 7235 등장
+엔티티 본문 -> 표현(Representation) 으로 변경됨
+
+표현은 요청이나 응답에서 전달할 실제 데이터
+표현 헤더는 표현 데이터를 해석할 수 있는 정보 제공
+
+메세지 본문 (Message Body) 을 통해 표현 데이터 전달
+메세지 본문 = payload
+
+표현
+Content-Type : 표현 데이터의 형식
+Content_Encoding : 표현 데이터의 압축 방식
+Content-Language : 표현 데이터의 자연 언어
+Content-Length : 표현 데이터의 길이
+- 표현 헤더는 전송, 응답 둘다 사용
+
+협상(Contents Negotiation) 
+Accept : 클라이언트가 선호하는 미디어 타입 전달
+Accept-Charset : 클라이언트가 선호하는 문자 인코딩
+Accept-Encoding : 클라이언트가 선호하는 압축 인코딩
+Accept-Language : 클라이언트가 선호하는 자연 언어
+- 협상 헤더는 요청시에만 사용
+
+전송 방식
+(Transfer-Encoding , Range, Content-Range)
+단순 전송
+압축 전송
+분할 전송(chunked)
+범위 전송
+
+일반 정보
+From : 유저 에이전트의 이메일 정보
+Referer : 이전 웹 페이지 주소 (유입경로 분석)
+User-Agent : 유저 에이전트 애플리케이션 정보(브라우저)
+Server : 요청을 처리하는 오리진 서버의 소프트웨어 정보(서버 정보)
+Date : 메세지가 생성된 날짜
+
+특별한 정보
+Host : 요청한 호스트 정보(필수 속성)
+Location : 페이지 리다이렉션
+Allow : 허용 가능한 HTTP 메서드
+Retry-After : 유저 에이전트가 다음 요청을 하기까지 기다려야 하는 시간
+
+인증 
+Authorization : 클라이언트 인증 정보를 서버에 전달
+WWW-Authenticate : 리소스 접근시 필요한 인증 방법 정의
+
+쿠키
+헤더 (2가지) ->
+1. Set-Cookie : 서버에서 클라이언트로 쿠키 전달(응답) 
+2. Cookie : 클라이언트가 서버에서 받은 쿠키를 저장하고, HTTP 요청시 서버로 전달
+
+쿠키 특징 : 모든 요청에 쿠키 정보 자동 포함
+사용처 : 사용자 로그인 세션 관리
+	광고 정보 트래킹
+쿠키 정보는 항상 서버에 전송됨
+네트워크 트래픽 추가 유발
+최소한의 정보만 사용(Session id, 인증 토큰)
+서버에 전송하지 않고 웹 브라우저 내부에 데이터를 저장하고 싶으면
+웹 스토리지 참고
+
+보안에 민감한 데이터는 저장하면 안됨(ex. psn , credit card number...)
+
+쿠키 포함 정보
+생명주기, 도메인, 경로 ,보안 
